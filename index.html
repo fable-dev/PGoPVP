@@ -9,7 +9,6 @@
       box-sizing: border-box;
       font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
     }
-
     body {
       margin: 0;
       padding: 1.5rem;
@@ -18,7 +17,6 @@
       display: flex;
       justify-content: center;
     }
-
     .app {
       width: 100%;
       max-width: 900px;
@@ -28,7 +26,6 @@
       box-shadow: 0 20px 35px rgba(0,0,0,0.5);
       border: 1px solid #1e293b;
     }
-
     h1 {
       margin-top: 0;
       font-size: 1.75rem;
@@ -36,7 +33,6 @@
       align-items: center;
       gap: 0.5rem;
     }
-
     h1 span.logo-ball {
       width: 26px;
       height: 26px;
@@ -45,7 +41,6 @@
       position: relative;
       box-shadow: 0 0 0 2px #0f172a, 0 0 0 3px #f97316;
     }
-
     h1 span.logo-ball::before,
     h1 span.logo-ball::after {
       content: "";
@@ -55,46 +50,35 @@
       height: 2px;
       background: #0f172a;
     }
-
-    h1 span.logo-ball::before {
-      top: 45%;
-    }
-
-    h1 span.logo-ball::after {
-      top: 55%;
-    }
+    h1 span.logo-ball::before { top: 45%; }
+    h1 span.logo-ball::after { top: 55%; }
 
     .subtitle {
       color: #9ca3af;
       margin-bottom: 1rem;
       font-size: 0.9rem;
     }
-
     .grid {
       display: grid;
       gap: 1rem;
     }
-
     @media (min-width: 768px) {
       .grid-2 {
         grid-template-columns: 1.1fr 1.2fr;
       }
     }
-
     .card {
       background: #020617;
       border-radius: 0.75rem;
       padding: 1rem;
       border: 1px solid #1e293b;
     }
-
     .card-header {
       display: flex;
       justify-content: space-between;
       align-items: center;
       margin-bottom: 0.75rem;
     }
-
     .card-title {
       font-weight: 600;
       font-size: 0.95rem;
@@ -102,15 +86,13 @@
       letter-spacing: 0.06em;
       color: #9ca3af;
     }
-
     label {
       font-size: 0.85rem;
       color: #9ca3af;
       display: block;
       margin-bottom: 0.25rem;
     }
-
-    select {
+    select, input[type="text"] {
       width: 100%;
       padding: 0.4rem 0.6rem;
       border-radius: 0.5rem;
@@ -119,12 +101,10 @@
       color: #e5e7eb;
       font-size: 0.95rem;
     }
-
-    select:focus {
+    select:focus, input[type="text"]:focus {
       outline: 2px solid #22c55e;
       outline-offset: 1px;
     }
-
     .pill {
       display: inline-flex;
       align-items: center;
@@ -136,60 +116,45 @@
       margin-bottom: 0.2rem;
       background: #020617;
     }
-
     .pill.league {
       border-color: #22c55e33;
       background: #022c22;
       color: #bbf7d0;
     }
-
     .pill.type {
       border-color: #38bdf833;
       background: #082f49;
       color: #bae6fd;
     }
-
     .pill.role {
       border-color: #a855f733;
       background: #2e1065;
       color: #e9d5ff;
     }
-
     .value {
       font-size: 0.95rem;
       margin-bottom: 0.4rem;
     }
-
     .value strong {
       color: #e5e7eb;
     }
-
     .muted {
       color: #6b7280;
       font-size: 0.8rem;
     }
-
     ul {
       margin: 0.25rem 0 0.4rem;
       padding-left: 1.1rem;
       font-size: 0.9rem;
     }
-
     li {
       margin-bottom: 0.15rem;
     }
-
-    .highlight {
-      font-weight: 500;
-      color: #22c55e;
-    }
-
     .status {
       font-size: 0.8rem;
       color: #9ca3af;
       text-align: right;
     }
-
     .badge-cp {
       padding: 0.1rem 0.45rem;
       border-radius: 999px;
@@ -198,23 +163,19 @@
       color: #bbf7d0;
       background: #022c22;
     }
-
     .footer {
       margin-top: 1.2rem;
       text-align: right;
       font-size: 0.75rem;
       color: #4b5563;
     }
-
     .footer a {
       color: #6ee7b7;
       text-decoration: none;
     }
-
     .footer a:hover {
       text-decoration: underline;
     }
-
     .empty-state {
       font-size: 0.9rem;
       color: #6b7280;
@@ -230,7 +191,7 @@
         Pokémon GO PvP Helper
       </h1>
       <div class="subtitle">
-        A simple static helper for picking and understanding core PvP picks. Hosted on GitHub Pages.
+        Static PvP helper – league + Pokémon picker with roles, moves, partners, and counters.
       </div>
     </header>
 
@@ -251,6 +212,16 @@
           </div>
 
           <div>
+            <label for="pokemonSearchInput">Search (name or type)</label>
+            <input
+              id="pokemonSearchInput"
+              type="text"
+              placeholder="e.g. azu, ghost, fairy…"
+              autocomplete="off"
+            />
+          </div>
+
+          <div>
             <label for="pokemonSelect">Core Pokémon</label>
             <select id="pokemonSelect" disabled>
               <option value="">Select a league first…</option>
@@ -258,8 +229,7 @@
           </div>
 
           <div class="muted">
-            Tip: Start by picking a league, then choose a Pokémon to view its role,
-            recommended moves, partners, and typical counters.
+            Tip: pick a league, then type part of a name or type (like "water" or "ghost") to filter the list.
           </div>
         </div>
       </div>
@@ -280,266 +250,12 @@
     </section>
 
     <footer class="footer">
-      Built with static HTML/JS · Ideal for GitHub Pages · You can expand the data file over time.
+      Hosted on GitHub Pages · Data in <code>pokemon-data.js</code> · Logic in <code>app.js</code>
     </footer>
   </main>
 
-  <script>
-    // --- Static data model – tweak/extend these objects to grow your helper ---
-
-    const LEAGUES = {
-      great: {
-        id: "great",
-        name: "Great League",
-        cpCap: 1500,
-        note: "CP ≤ 1500"
-      },
-      ultra: {
-        id: "ultra",
-        name: "Ultra League",
-        cpCap: 2500,
-        note: "CP ≤ 2500"
-      },
-      master: {
-        id: "master",
-        name: "Master League",
-        cpCap: Infinity,
-        note: "No CP cap"
-      }
-    };
-
-    // A very small curated dataset to start with.
-    // You can expand this over time.
-    const POKEMON_DATA = [
-      {
-        slug: "azumarill",
-        name: "Azumarill",
-        leagues: ["great"],
-        types: ["Water", "Fairy"],
-        role: "Bulky safe swap / closer",
-        movesFast: ["Bubble"],
-        movesCharge: ["Play Rough", "Hydro Pump", "Ice Beam"],
-        partners: ["Galarian Stunfisk", "Trevenant", "Registeel"],
-        counters: ["Lanturn", "Venusaur", "Registeel", "Toxicroak"],
-        notes: "Very strong in Great League with flexible coverage; needs good IVs for bulk."
-      },
-      {
-        slug: "galarian-stunfisk",
-        name: "Galarian Stunfisk",
-        leagues: ["great"],
-        types: ["Ground", "Steel"],
-        role: "Anti-flyer / generalist",
-        movesFast: ["Mud Shot"],
-        movesCharge: ["Rock Slide", "Earthquake"],
-        partners: ["Azumarill", "Medicham", "Trevenant"],
-        counters: ["Swampert", "Medicham", "Fighting-types", "Water-types"],
-        notes: "Hard walls many Flyers and Steel-weak mons. Watch out for Fighters and strong Waters."
-      },
-      {
-        slug: "medicham",
-        name: "Medicham",
-        leagues: ["great"],
-        types: ["Fighting", "Psychic"],
-        role: "Flexible fighter / core breaker",
-        movesFast: ["Counter"],
-        movesCharge: ["Ice Punch", "Psychic", "Dynamic Punch"],
-        partners: ["Lanturn", "Galarian Stunfisk", "Noctowl"],
-        counters: ["Sableye", "Ghost-types", "Fairy-types"],
-        notes: "Core to Great League. XL investment helps; strong coverage vs Steels and Normals."
-      },
-      {
-        slug: "cresselia-ultra",
-        name: "Cresselia",
-        leagues: ["ultra"],
-        types: ["Psychic"],
-        role: "Bulky closer / safe swap",
-        movesFast: ["Psycho Cut"],
-        movesCharge: ["Moonblast", "Grass Knot", "Future Sight"],
-        partners: ["Registeel", "Giratina (Altered)", "Talonflame"],
-        counters: ["Dark-types", "Giratina (Altered)", "Steel-types"],
-        notes: "Extremely bulky and spammy in Ultra League; Grass Knot gives great anti-Water coverage."
-      },
-      {
-        slug: "giratina-altered",
-        name: "Giratina (Altered)",
-        leagues: ["ultra", "master"],
-        types: ["Ghost", "Dragon"],
-        role: "Safe swap / midgame tank",
-        movesFast: ["Shadow Claw", "Dragon Breath"],
-        movesCharge: ["Dragon Claw", "Shadow Sneak", "Ancient Power"],
-        partners: ["Cresselia", "Registeel", "Togekiss"],
-        counters: ["Charmers", "Dark-types", "Dragon-types with strong Dragon moves"],
-        notes: "Central to Ultra and viable in Master Premier formats. Watch out for Charm and Dark."
-      },
-      {
-        slug: "mewtwo",
-        name: "Mewtwo",
-        leagues: ["master"],
-        types: ["Psychic"],
-        role: "High-pressure closer",
-        movesFast: ["Psycho Cut"],
-        movesCharge: ["Psystrike", "Shadow Ball", "Focus Blast", "Ice Beam"],
-        partners: ["Dialga", "Lugia", "Groudon"],
-        counters: ["Dark-types", "Steel-types like Metagross and Dialga"],
-        notes: "Extremely high damage with elite moves; flexible but fragile compared to bulky legends."
-      }
-    ];
-
-    // --- DOM references ---
-    const leagueSelect = document.getElementById("leagueSelect");
-    const pokemonSelect = document.getElementById("pokemonSelect");
-    const leagueCpCap = document.getElementById("leagueCpCap");
-    const detailsContent = document.getElementById("detailsContent");
-    const statusText = document.getElementById("statusText");
-
-    // --- Initialization ---
-    function initLeagueSelect() {
-      Object.values(LEAGUES).forEach(league => {
-        const option = document.createElement("option");
-        option.value = league.id;
-        option.textContent = league.name;
-        leagueSelect.appendChild(option);
-      });
-    }
-
-    function updateLeagueCpBadge(leagueId) {
-      const league = LEAGUES[leagueId];
-      if (!league) {
-        leagueCpCap.textContent = "League: —";
-        return;
-      }
-      const capText = league.cpCap === Infinity ? "No CP cap" : `CP cap: ${league.cpCap}`;
-      leagueCpCap.textContent = `${league.name} · ${capText}`;
-    }
-
-    function populatePokemonSelect(leagueId) {
-      pokemonSelect.innerHTML = "";
-      const placeholder = document.createElement("option");
-      placeholder.value = "";
-      placeholder.textContent = leagueId ? "Select a core pick…" : "Select a league first…";
-      pokemonSelect.appendChild(placeholder);
-
-      if (!leagueId) {
-        pokemonSelect.disabled = true;
-        return;
-      }
-
-      const options = POKEMON_DATA.filter(p => p.leagues.includes(leagueId));
-      options.forEach(p => {
-        const opt = document.createElement("option");
-        opt.value = p.slug;
-        opt.textContent = p.name;
-        pokemonSelect.appendChild(opt);
-      });
-
-      pokemonSelect.disabled = options.length === 0;
-    }
-
-    function renderPokemonDetails(slug, leagueId) {
-      const league = LEAGUES[leagueId];
-      const pokemon = POKEMON_DATA.find(p => p.slug === slug);
-
-      if (!pokemon || !league) {
-        detailsContent.innerHTML = `
-          <p class="empty-state">
-            No data found for that combination (yet). Try another Pokémon or league.
-          </p>
-        `;
-        statusText.textContent = "No data available.";
-        return;
-      }
-
-      statusText.textContent = `${pokemon.name} in ${league.name}`;
-
-      const cpText = league.cpCap === Infinity ? "No CP cap (XL not required for cap)" : `CP ≤ ${league.cpCap}`;
-      const typesHtml = pokemon.types.map(t => `<span class="pill type">${t}</span>`).join("");
-
-      const partnersHtml = pokemon.partners && pokemon.partners.length
-        ? `<ul>${pokemon.partners.map(p => `<li>${p}</li>`).join("")}</ul>`
-        : `<p class="muted">Add some recommended partners to the data model.</p>`;
-
-      const countersHtml = pokemon.counters && pokemon.counters.length
-        ? `<ul>${pokemon.counters.map(c => `<li>${c}</li>`).join("")}</ul>`
-        : `<p class="muted">Add common counters to the data model.</p>`;
-
-      const movesFastHtml = pokemon.movesFast && pokemon.movesFast.length
-        ? pokemon.movesFast.map(m => `<span class="pill">${m}</span>`).join("")
-        : `<span class="muted">No fast moves listed yet.</span>`;
-
-      const movesChargeHtml = pokemon.movesCharge && pokemon.movesCharge.length
-        ? pokemon.movesCharge.map(m => `<span class="pill">${m}</span>`).join("")
-        : `<span class="muted">No charge moves listed yet.</span>`;
-
-      detailsContent.innerHTML = `
-        <div class="value">
-          <strong>${pokemon.name}</strong>
-        </div>
-        <div class="value">
-          <span class="pill league">${league.name}</span>
-          ${league.cpCap !== Infinity ? `<span class="badge-cp">${cpText}</span>` : `<span class="badge-cp">${cpText}</span>`}
-        </div>
-        <div class="value">
-          <strong>Typing:</strong> ${typesHtml || "<span class='muted'>Unknown</span>"}
-        </div>
-        <div class="value">
-          <strong>Role:</strong> <span class="pill role">${pokemon.role || "Not set"}</span>
-        </div>
-
-        <div class="value">
-          <strong>Fast moves:</strong><br />
-          ${movesFastHtml}
-        </div>
-
-        <div class="value">
-          <strong>Charge moves:</strong><br />
-          ${movesChargeHtml}
-        </div>
-
-        <div class="value">
-          <strong>Recommended partners:</strong>
-          ${partnersHtml}
-        </div>
-
-        <div class="value">
-          <strong>Common counters:</strong>
-          ${countersHtml}
-        </div>
-
-        <div class="value">
-          <strong>Notes:</strong><br />
-          <span class="muted">${pokemon.notes || "You can add matchup notes and IV comments here."}</span>
-        </div>
-      `;
-    }
-
-    // --- Event handlers ---
-    leagueSelect.addEventListener("change", () => {
-      const leagueId = leagueSelect.value;
-      updateLeagueCpBadge(leagueId);
-      populatePokemonSelect(leagueId);
-      detailsContent.innerHTML = `
-        <p class="empty-state">
-          League selected. Now choose a core Pokémon for ${leagueId ? LEAGUES[leagueId].name : "this league"}.
-        </p>
-      `;
-      statusText.textContent = leagueId ? `League: ${LEAGUES[leagueId].name}` : "Waiting for selection…";
-    });
-
-    pokemonSelect.addEventListener("change", () => {
-      const leagueId = leagueSelect.value;
-      const slug = pokemonSelect.value;
-      if (!leagueId || !slug) {
-        detailsContent.innerHTML = `<p class="empty-state">Choose a league and a Pokémon to see PvP details.</p>`;
-        statusText.textContent = "Waiting for selection…";
-        return;
-      }
-      renderPokemonDetails(slug, leagueId);
-    });
-
-    // --- Boot ---
-    initLeagueSelect();
-    updateLeagueCpBadge("");
-    populatePokemonSelect("");
-  </script>
+  <!-- Data first, then app logic -->
+  <script src="pokemon-data.js"></script>
+  <script src="app.js"></script>
 </body>
 </html>
